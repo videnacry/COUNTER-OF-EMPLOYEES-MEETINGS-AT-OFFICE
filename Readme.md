@@ -18,7 +18,7 @@ To be able to run this page in local, you'll need:
     - [@TYPES/MOCHA](https://www.npmjs.com/package/@types/mocha)
 
     Otherwise you can just execute ```npm i```, then move in the console to the folder **tests** and run again ```npm i```
-3. After the dependencies installation you may compile the typescript files to get them as one js bundle (file) to do that you must execute in the root folder of the project ```npm tsc```
+3. After the dependencies installation you may compile the typescript files to get them as one js bundle (file) to do that you must execute in the root folder of the project ```npx tsc```
 # Running the project
 To run the web page you must simply open the index.html file of the main project folder in your browser.
 # Testing
