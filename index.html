@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="./index.css" type="text/css" rel="stylesheet"/>
+        <title>ACME</title>
+    </head>
+    <body class="bg-black-hard">
+        <nav class="p-3-vmin flex-row justify-content-space-between align-items-center bg-black-light">
+            <form id="file-input-form">
+                <input type="file" id="file-input"/>
+            </form>
+            <div id="input-examples" class="flex-row"></div>
+        </nav>
+        <section class="m-3-vmin flex-row flex-wrap justify-content-center">
+            <h2 class="w-100 text-align-center">Input preview</h2>
+            <p class="w-100 text-align-center">Please, follow the examples to create your own .txt file</p>
+            <pre id="file-preview" class="p-3-vmin bg-black-light"></pre>
+            <p class="w-100 text-align-center">Get employees paired with number of times they met in the office.</p>
+            <button id="show-meet-times">Accept</button>
+            <div class="w-100 flex-row justify-content-center">
+                <pre id="times-meet-result" class="p-3-vmin bg-black-light"></pre>
+            </div>
+            </div>
+        </section>
+
+
+
+
+<script src="main.js"></script>
+<script>
+    function getHtmlButtonForExample (pTitle, pText) {
+        const htmlElements = {
+            pre: document.getElementById('file-preview'),
+            button: document.createElement('button'),
+            fileInputForm: document.getElementById('file-input-form'),
+            resultPre: document.getElementById('times-meet-result')
+        }
+
+        htmlElements.button.textContent = pTitle
+        htmlElements.button.onclick = function () {
+            states.text = pText
+            htmlElements.pre.textContent = pText
+            htmlElements.fileInputForm.reset()
+            htmlElements.resultPre.textContent = ''
+        }
+
+        return htmlElements.button
+    }
+    const textExamples = [
+        `RENE=MO10:00-12:00,TU10:00-12:00,TH01:00-03:00,SA14:00-18:00,SU20:00- 21:00
+ASTRID=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00
+ANDRES=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00`,
+`RENE=MO10:15-12:00,TU10:00-12:00,TH013:00-13:15,SA14:00-18:00
+ASTRID=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00,WE20:00-22:00
+LISETH=MO11:15-13:00,TU12:00-14:00,TH013:00-15:15,SU21:00-22:00
+ANDRES=MO10:00-12:00,WE12:00-14:00,SA14:00-16:00`,
+`RENE=MO10:15-12:00,TH13:00-13:15,SA14:00-18:00,SU20:00-21:00
+ASTRID=MO10:00-12:00,TH12:00-14:00,FR20:00-21:00,TU10:00-12:00
+JAVIER=MO13:15-15:00,TU12:00-14:00,TH13:00-15:15,SU21:00-22:00
+CARMEN=MO13:15-15:00,TU10:00-12:00,WE10:00-13:00,SA14:00-18:00
+ARIEL=MO10:00-12:00,TU18:00-19:00,WE10:00-13:00,TH12:00-14:00,FR:20:00-21:00,SA20:00-21:00,SU20:00-21:00`
+    ]
+
+    textExamples.forEach(function (textExample, index) {
+        document.getElementById('input-examples').appendChild(getHtmlButtonForExample('example ' + index, textExample))
+    })
+    
+
+
+    const states = {
+        text: textExamples[0]
+    }
+    const htmlElements = {
+        pre: document.getElementById('file-preview'),
+        fileInput: document.getElementById('file-input'),
+        button: document.getElementById('show-meet-times'),
+        resultPre: document.getElementById('times-meet-result')
+    }
+    htmlElements.pre.textContent = textExamples[0]
+    const actions = {
+        previewTextFile: function () {
+            const fileReader = new FileReader()
+            fileReader.onload = e => {
+                states.text = e.currentTarget.result
+                htmlElements.pre.textContent = states.text
+                htmlElements.resultPre.textContent = ''
+            }
+            fileReader.readAsText(htmlElements.fileInput.files[0])
+        },
+        showTimesMeet: function () {
+            const main = new Main(states.text)
+            htmlElements.resultPre.textContent = main.employeesPairedWithTimesTogether.map(function (pair) {
+                return pair.name + ': ' + pair.timesTogether
+            }).join('\n')
+        }
+    }
+    htmlElements.button.onclick = actions.showTimesMeet
+    htmlElements.fileInput.oninput = actions.previewTextFile
+</script>
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,45 @@
+:root {
+    --bg-black-light: rgb(24, 24, 24);
+    --bg-black-hard: rgb(7, 7, 7);
+    --bg-white-light: rgb(230, 230, 230);
+    --bg-white-hard: rgb(255, 255, 255);
+}
+body {
+    font-family: sans-serif;
+}
+.w-100 {
+    width: 100%;
+}
+.m-3-vmin {
+    margin: 3vmin;
+}
+.p-3-vmin {
+    padding: 3vmin;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.justify-content-center {
+    justify-content: center;
+}
+.justify-content-space-between {
+    justify-content: space-between;
+}
+.align-items-center {
+    align-items: center;
+}
+.text-align-center {
+    text-align: center;
+}
+.bg-black-hard {
+    background-color: var(--bg-black-hard);
+    color: var(--bg-white-light);
+}
+.bg-black-light {
+    background-color: var(--bg-black-light);
+    color: var(--bg-white-hard);
+}

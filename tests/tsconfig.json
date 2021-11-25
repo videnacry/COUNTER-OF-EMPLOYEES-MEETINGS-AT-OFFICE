@@ -1,0 +1,14 @@
+{
+    "ts-node": {
+      "files": true
+    },
+    "compilerOptions": {
+      "module": "CommonJS",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true
+    },
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Recommended"
+  }

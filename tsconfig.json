@@ -1,0 +1,14 @@
+{
+  "exclude": ["./node_modules", "./tests"],
+  "compilerOptions": {
+    "module": "none",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outFile": "main.js",
+    "rootDir": "./server"
+  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Recommended"
+}
