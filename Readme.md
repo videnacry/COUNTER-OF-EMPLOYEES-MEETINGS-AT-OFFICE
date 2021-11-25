@@ -11,7 +11,7 @@ To be able to run this page in local, you'll need:
 
 # Installing
 1. After getting [NODE](https://nodejs.org/es/) you have two ways to get the project, one of them is to use github, so you can make a clone of the project, the other one is to download the ZIP, anyway you would use the same link of github [COUNTER OF EMPLOYEES MEETINGS AT OFFICE](https://github.com/videnacry/COUNTER-OF-EMPLOYEES-MEETINGS-AT-OFFICE.git).
-2. Once the project is in your computer, you must use the console, open the project folder on it (if you are using windows should be with the command ```cd```), after you are inside the folder (in the console) you must use the command ```npm install-with-tests``` this is going to install the dependencies of the project and of the **tests** folder, the dependencies are:
+2. Once the project is in your computer, you must use the console, open the project folder on it (if you are using windows should be with the command ```cd```), after you are inside the folder (in the console) you must use the command ```npm run install-with-tests``` this is going to install the dependencies of the project and of the **tests** folder, the dependencies are:
     - [TYPESCRIPT](https://www.typescriptlang.org/id/download)
     - [TS-NODE](https://www.npmjs.com/package/ts-node)
     - [MOCHA](https://mochajs.org/)
